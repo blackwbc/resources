@@ -1,0 +1,25 @@
+<% if @resources.blank? %>
+  <h1>Jelenleg nincs erőforrás a rendszerben</h1>
+<% else %>
+  <h1>A következő erőforrások vannak a rendszerben:</h1>
+  <table>
+    <thead>
+      <tr>
+        <td>Név</td>
+        <td>Művelet</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resources.each do |r|%>
+        <tr>
+          <td><%=r.név %></td>
+          <td><%= link_to 'Mutasd', resource_path(r.id) %></td>
+          <td><%= link_to 'Szerkeszt', resource_edit_path(r.id) %></td>
+          <td><%= link_to 'Töröl', resource_path(r.id), data: { method: :delete, confirm: "Biztos vagy benne? Ezzel elveszik az adott elem az adatbázisból és vagy 15 másodpercbe kerül újra felvenni ha meggondolnád magad"} %></td>
+          <td><%= link_to 'Lefoglalások', reservation_path(r.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<p><%= link_to "erőforrás hozzáadása", {:action => 'new' }%></p>

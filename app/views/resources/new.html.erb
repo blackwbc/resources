@@ -1,0 +1,23 @@
+<h1>Erőforrás hozzáadása</h1>
+<%if flash[:errors] %>
+  <%flash[:errors].each do |e| %>
+    <p><%= e %></p>
+  <% end %>
+<% end %>
+<form action="/resources" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+  <p>
+    <label>Név:</label>
+    <input type="text" name="resource[név]">
+  </p>
+  <p>
+    <label>Kód:</label>
+    <input type="text" name="resource[kód]">
+  </p>
+  <p>
+    <label>típus</label>:
+    <%= collection_select(:resource, :resource_type_id, @resource_types, :id, :név, prompt: true) %></p>
+
+  <input type="submit" value="Create">
+</form>
+<%= link_to 'Back', {:action => 'list' } %>

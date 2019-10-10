@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  név: MyString
+  kód: MyString
+  típus: MyString
+
+two:
+  név: MyString
+  kód: MyString
+  típus: MyString

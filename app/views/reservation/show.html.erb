@@ -1,0 +1,28 @@
+<h1><%= @resource.név%></h1>
+
+<% if @reservations.blank? %>
+  <h1>Jelenleg nincs lefoglalása, ennek az erőforrásnak</h1>
+<% else %>
+  <h1>A következő lefoglalásai vannak, ennek az erőforrásnak:</h1>
+  <table>
+    <thead>
+    <tr>
+      <td>Név</td>
+      <td>Mettől</td>
+      <td>Meddig</td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @reservations.each do |r|%>
+      <tr>
+        <td><%=r.lefoglaló_neve %></td>
+        <td><%=r.mettől %></td>
+        <td><%=r.meddig %></td>
+        <td><%= link_to 'Töröl', reservation_delete_path(id: r.id, resource_id: @resource.id), data: { method: :delete, confirm: "Biztos vagy benne? Ezzel elveszik az adott foglalás az adatbázisból és vagy 15 másodpercbe kerül újra felvenni ha meggondolnád magad"} %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+<p><%= link_to "lefoglalás", reservation_new_path(@resource.id)%></p>
+<p><%= link_to "Vissza", resource_list_path%></p>

@@ -1,0 +1,21 @@
+<h1><%= @resource.név %> lefoglalása</h1>
+<%if flash[:errors] %>
+  <%flash[:errors].each do |e| %>
+    <p><%= e %></p>
+  <% end %>
+<% end %>
+
+<%= form_tag reservation_create_path, :resource_id =>@resource.id do %>
+  <p><label for = "reservation_lefoglaló_neve">Lefoglaló neve</label>:
+    <%= text_field 'reservation', 'lefoglaló_neve' %></p>
+
+  <p><label for = "reservation_mettől">Foglalás kezdete</label>:
+    <%= datetime_local_field 'reservation', 'mettől'%></p>
+
+  <p><label for = "reservation_meddig">Foglalás vége</label>:
+    <%= datetime_local_field 'reservation', 'meddig'%></p>
+
+  <%= submit_tag "Lefoglalás" %>
+
+<% end -%>
+<%= link_to 'Vissza', reservation_path(@resource.id) %>

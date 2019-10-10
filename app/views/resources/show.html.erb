@@ -1,0 +1,11 @@
+<h1><%= @resource.név%></h1>
+
+<p>
+  <strong>Kód: </strong> $<%= @resource.kód %><br />
+  <strong>Típus: </strong> <%= @resource.resource_type.név%><br />
+  <strong>Létrehozás ideje:</strong> <%= @resource.created_at %><br />
+</p>
+
+<hr />
+
+<%= link_to 'Vissza', {:action => 'list'} %>

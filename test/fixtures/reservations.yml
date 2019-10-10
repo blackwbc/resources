@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lefoglaló_neve: MyString
+  mettől: 2019-10-03 13:57:03
+  meddig: 2019-10-03 13:57:03
+
+two:
+  lefoglaló_neve: MyString
+  mettől: 2019-10-03 13:57:03
+  meddig: 2019-10-03 13:57:03
